@@ -1,0 +1,5 @@
+setuptools<34
+numpy
+jupyter==1.0.0
+
+
