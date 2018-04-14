@@ -1,45 +1,32 @@
-# Modeling Humanitarian Logistics
+# CFC Compliance Detector
+Checks whether or not a given subsidiary complies with the new CFC regulations beginning Jan 1, 2019
+Generates simulated subsidiaries and checks their compliance. If CFC violation detected returns the home country tax that would be paid.
 
-Phase I of a model simulating logistics of refugee intake and housing as well as the mental health of those involved.
-An agent based simulation in the tradition of Schilling / Gilbert. Phase I models only the legal transitions through various states of an externally displaced person, asylum seeker, and temporary resident. 
+### Requirements
 
-Phase II will include the logistics of AZC construction. That is, during times of large influx of refugees, how does government with its limited means provide housing.
-
-Phase III will add a mental health characterization to refugee agents. 
-
-
-### Prerequisites
-
-Clone the repo then, in the local directory run
-
+run the following in the cloned folder
 ```
 pip install -r requirements.txt
 ```
 
 ### Running
 
-
-In the same directory run
+To generate a simulated corporation and check its CFC compliance run the block
 ```
-python run.py
+import os
+
+size = corporation_size
+output = np.zeros(shape = (size, 4))
+
+for i in range(size):
+    output[i,:] = decision_procedure(gen_subsidiary())
+
+np.savetxt(os.getcwd()+'/output.csv', output, delimiter=',')
 ```
-
-
-### Notes
-To control the rate by which newcomers are added to the simulation use the slider. Changes do not take effect until the simulation has been stopped and restarted, however. 
-
-
-## Authors
-
+### Authors
 Phillip Wozny
+Sam Jing
+Rashimil
 
-## License
-
-IP pertains to UU
-
-## Acknowledgments
-
-* Frank Dignum - Advisor
-* Christine Boshuijzen - Comrad
 
 
